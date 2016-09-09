@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+ruby '2.3.1'
+
+gem 'sinatra'
+gem 'thin'
+gem 'mongo'
+gem 'json'
+gem 'multi_json'
+gem 'logger'
+gem 'monitor'
+gem 'json-schema'

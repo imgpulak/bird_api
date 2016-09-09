@@ -1,0 +1,4 @@
+echo "installing or updating below gems ..."
+bundle install
+gem install sinatra
+echo "gems install or update is done"
