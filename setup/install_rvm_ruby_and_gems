@@ -1,0 +1,28 @@
+echo "Going to install all prerequisites and setting up environment"
+
+echo "installing curl"
+sudo apt-get install curl
+
+echo "installing RVM ref: http://tecadmin.net/install-ruby-on-rails-on-ubuntu/"
+gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+curl -sSL https://get.rvm.io | bash -s stable
+sudo source /etc/profile.d/rvm.sh
+rvm requirements
+source ~/.rvm/scripts/rvm
+
+echo "installing ruby-2.3.1 ref: http://tecadmin.net/install-ruby-on-rails-on-ubuntu/"
+rvm install 2.3.1
+rvm use 2.3.1 --default
+ruby --version
+source ~/.rvm/scripts/rvm
+
+echo "installing bundler ref: https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction"
+gem install bundler
+
+echo "installing gems"
+bundle install
+gem install sinatra
+echo "gems installation is done"
+
+echo "Setup is finished. Please check logs. If any error then fix."
+echo "To start run ../start and to stop run ../stop"
