@@ -31,15 +31,21 @@ class DB::MongoDB
 		return document_id
 	end
 	
-	def get_documents_from_a_collection(collection_name, query_hash, args_hash={})
+	def get_documents_from_a_collection(collection_name, filter, args_hash={})
 		$log.info "getting documents from the collection #{collection_name}"
 		document_hash_array = []
 		collection = @client[collection_name.to_sym]
 		if (args_hash[:limit] and args_hash[:limit] >= 1)
-			documents = collection.find(query_hash).limit(args_hash[:limit])
+			documents = collection.find(filter).limit(args_hash[:limit])
 		else
-			documents = collection.find(query_hash)
+			documents = collection.find(filter)
 		end
 		return documents
+	end
+	
+	def delete_a_documents_from_a_collection(collection_name, filter, args_hash={})
+		$log.info "deleting a document from the collection #{collection_name}"
+		collection = @client[collection_name.to_sym]
+		return collection.find_one_and_delete(filter)
 	end
 end

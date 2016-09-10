@@ -135,5 +135,23 @@ class GeneralMethods
 			return get_response_hash(500)
 		end
 	end
-
+	
+	def delete_bird_by_id(params = {})
+		bird_info_hash = {}
+		begin
+			id = params["id"]
+			query_hash = {
+				:_id => BSON::ObjectId(id)
+			}
+			bird_document = @mongodb_obj.delete_a_documents_from_a_collection(@collection_name, query_hash)
+			return get_response_hash(404) if not bird_document.is_a?(BSON::Document)
+			return get_response_hash(200)
+		rescue BSON::ObjectId::Invalid => e
+			return get_response_hash(404)
+		rescue Exception => e
+			$log.error "#{e.class} -> #{e.message} for params #{params}"
+			$log.info e.backtrace
+			return get_response_hash(500)
+		end
+	end
 end
