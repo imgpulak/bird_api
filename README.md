@@ -31,22 +31,22 @@ Mongodb version - 3.2.9
 
 ## Getting started
 
-1. Clone or download this repository
+1) Clone or download this repository
 
 ~~~
 $ git clone git@github.com:ghoshpulak91/bird_api.git
 $ cd bird_api
 ~~~
 
-2. Install prerequisites and setting up environment.
+2) Install prerequisites and setting up environment.
 
-2.1. Install mongodb
+2.1) Install mongodb
 
 ~~~
 Ref: https://docs.mongodb.com/manual/installation/
 ~~~
 
-2.2. If you are using Debian-based OS then run below command.
+2.2) If you are using Debian-based OS then run below command.
 
 ~~~
 $ ./setup/install_rvm_ruby_and_gems
