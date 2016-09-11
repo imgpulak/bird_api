@@ -34,7 +34,7 @@ Mongodb version - 3.2.9
 1) Clone or download this repository
 
 ~~~
-$ git clone git@github.com:ghoshpulak91/bird_api.git
+$ git clone https://github.com/ghoshpulak91/bird_api.git
 $ cd bird_api
 ~~~
 
@@ -46,25 +46,23 @@ $ cd bird_api
 Ref: https://docs.mongodb.com/manual/installation/
 ~~~
 
-2.2) If you are using Debian-based OS then run below command.
+2.2) Install RVM and Ruby-2.3.1(Ref: http://tecadmin.net/install-ruby-on-rails-on-ubuntu/)
+
+2.3) Set ruby-2.3.1 as default ruby version. 
 
 ~~~
-$ ./setup/install_rvm_ruby_and_gems
+$ rvm use 2.3.1 --default
+$ ruby --version
 ~~~
 
-Else or if above script fails, then please install RVM and Ruby-2.3.1(Ref: http://tecadmin.net/install-ruby-on-rails-on-ubuntu/). Then install all gems required.
 
-Install gems manually 
+2.4) Install required gems 
 
 ~~~ 
 $ gem install bundler sinatra thin mongo json multi_json logger monitor json-schema httpclient minitest 
 ~~~
 
-Or use bundler 
-
-~~~
-$ bundle install
-~~~
+------
 
 ## Run the application 
 
@@ -86,6 +84,8 @@ To stop
 $ ./stop 
 ~~~
 
+------
+
 ## Check logs 
 
 Log file path  
@@ -99,6 +99,8 @@ If you are using Linux then you can use bellow command to check log
 ~~~
 $ tail -f ./log/bird_api.log
 ~~~
+
+------
 
 ## Run test suite 
 
