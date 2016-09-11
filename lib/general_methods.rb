@@ -8,6 +8,7 @@ load_arr.each do |lib|
 	require File.expand_path(File.dirname(__FILE__)+"/"+lib)
 end
 
+# This class implemets all methods, which validates input and save input to the databases 
 class GeneralMethods
 	# a monitor is an object or module intended to be used safely by more than one thread.
 	include MonitorMixin
@@ -19,6 +20,7 @@ class GeneralMethods
 		load_all_json_schemas
 	end
 
+	# It lodas all json-schema files, pasre into Hash and save in a instance variable @all_json_schemas
 	def load_all_json_schemas
 		json_schema_dir = get_json_schema_dir
 		@all_json_schemas = {}
@@ -36,11 +38,16 @@ class GeneralMethods
 		end
 		$log.info "all_json_schemas: #{@all_json_schemas}"
 	end
-
+	
+	# It determines the path for json-schema directory
 	def get_json_schema_dir
 		File.expand_path(File.dirname(__FILE__)+"/"+"./json_schema")
 	end
 
+	# This make a response hash 
+	# @param [Integer] status returned status code 
+	# @param [Hash] body_hash returned body hash
+	# @return [Hash] return a response_hash. Keys are status, content_type and body.
 	def get_response_hash(status, body_hash=nil)
 		body = nil
 		body = JSON.pretty_generate(body_hash) if body_hash
@@ -53,6 +60,10 @@ class GeneralMethods
 		return response_hash
 	end
 
+	# This prase bird info input josn and validates as per json-schema.
+	# Then add default fields added and visible
+	# @pram [String] bird_info_json a json string as input 
+	# @return [Hash] validated bird_info_hash
 	def parse_and_validate_bird_info_json(bird_info_json)
 		$log.info "bird_info_json: #{bird_info_json}" 
 		bird_info_hash = nil
@@ -71,6 +82,10 @@ class GeneralMethods
 		return bird_info_hash	
 	end
 
+	# This method implemets 'POST /birds' endpoint
+	# @param [Hash] params request parameter hash
+	# @param [String] body json input string
+	# @return [Hash] return a response_hash. Keys are status, content_type and body.
 	def post_bird(params={}, body=nil)
 		$log.info "params: #{params}"
 		$log.info "body: #{body}"
@@ -90,6 +105,9 @@ class GeneralMethods
 		end
 	end
 
+	# This method implemets 'GET /birds' endpoint
+	# @param [Hash] params request parameter hash
+	# @return [Hash] return a response_hash. Keys are status, content_type and body.
 	def get_birds(params = {})
 		query_hash = {
 			"visible" => true
@@ -109,6 +127,9 @@ class GeneralMethods
 		end
 	end
 	
+	# This method implemets 'GET /birds/{id}' endpoint
+	# @param [Hash] params request parameter hash. Key is 'id'
+	# @return [Hash] return a response_hash. Keys are status, content_type and body.
 	def get_bird_by_id(params = {})
 		bird_info_hash = {}
 		begin
@@ -136,6 +157,9 @@ class GeneralMethods
 		end
 	end
 	
+	# This method implemets 'DELETE /birds/{id}' endpoint
+	# @param [Hash] params request parameter hash. Key is 'id'
+	# @return [Hash] return a response_hash. Keys are status, content_type and body.
 	def delete_bird_by_id(params = {})
 		bird_info_hash = {}
 		begin

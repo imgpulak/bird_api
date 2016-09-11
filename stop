@@ -1,1 +1,2 @@
+# this script will kill the application running at 7777
 fuser -kv 7777/tcp

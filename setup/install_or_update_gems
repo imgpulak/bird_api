@@ -1,4 +1,6 @@
-echo "installing or updating below gems ..."
+echo "installing bundler ref: https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction"
+gem install bundler
+
+echo "installing gems"
 bundle install
-gem install sinatra
-echo "gems install or update is done"
+echo "gems installation is done"

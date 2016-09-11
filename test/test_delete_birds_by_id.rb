@@ -9,6 +9,7 @@ load_arr.each do |lib|
         require File.expand_path(File.dirname(__FILE__)+"/"+lib)
 end
 
+# This is a test case for 'DELETE /birds/{id}' endpoint
 class TestDeleteBirdsByID < Minitest::Test
         def setup
 		@httpclint = HTTPClient.new

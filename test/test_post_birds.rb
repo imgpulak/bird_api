@@ -9,6 +9,7 @@ load_arr.each do |lib|
         require File.expand_path(File.dirname(__FILE__)+"/"+lib)
 end
 
+# Test cases for 'POST /birds' endpoint
 class TestPostBirds < Minitest::Test
         def setup
 		@httpclint = HTTPClient.new

@@ -1,1 +1,2 @@
+# this script will strat the application in localhost at port 7777 
 ruby api_routers_sinatra.rb -o 0.0.0.0 -p 7777
