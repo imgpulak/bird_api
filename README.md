@@ -40,11 +40,7 @@ $ cd bird_api
 
 2) Install prerequisites and setting up environment.
 
-2.1) Install mongodb
-
-~~~
-Ref: https://docs.mongodb.com/manual/installation/
-~~~
+2.1) Install mongodb(Ref: https://docs.mongodb.com/manual/installation/).
 
 2.2) Install RVM and Ruby-2.3.1(Ref: http://tecadmin.net/install-ruby-on-rails-on-ubuntu/)
 
