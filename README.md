@@ -31,28 +31,28 @@ Mongodb version - 3.2.9
 
 ## Getting started
 
-Clone or download this repository
+1) Clone or download this repository
 
 ~~~
 $ git clone git@github.com:ghoshpulak91/bird_api.git
 $ cd bird_api
 ~~~
 
-Install prerequisites and setting up environment.
+2) Install prerequisites and setting up environment.
 
-Install mongodb
+2.1) Install mongodb
 
 ~~~
 Ref: https://docs.mongodb.com/manual/installation/
 ~~~
 
-If you are using Debian-based OS then run below command.
+2.2) If you are using Debian-based OS then run below command.
 
 ~~~
 $ ./setup/install_rvm_ruby_and_gems
 ~~~
 
-Else or if above script fails, then please install RVM and Ruby(2.3.1). Ref: http://tecadmin.net/install-ruby-on-rails-on-ubuntu/. Then install all gems required.
+Else or if above script fails, then please install RVM and Ruby-2.3.1(Ref: http://tecadmin.net/install-ruby-on-rails-on-ubuntu/). Then install all gems required.
 
 Install gems manually 
 
@@ -60,7 +60,7 @@ Install gems manually
 $ gem install bundler sinatra thin mongo json multi_json logger monitor json-schema httpclient minitest 
 ~~~
 
-Use bundler 
+Or use bundler 
 
 ~~~
 $ bundle install
@@ -74,7 +74,11 @@ To start
 $ ./start 
 ~~~
 
-The application can be accessed by http://localhost:7777 . 
+The application can be started in localhost at port number 7777. To test click [here](http://localhost:7777) or run below command.
+
+~~~
+$ curl http://localhost:7777
+~~~
 
 To stop 
 
