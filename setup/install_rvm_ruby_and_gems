@@ -1,3 +1,5 @@
+echo "This is useful if your OS is Debian-based"
+
 echo "Going to install all prerequisites and setting up environment"
 
 echo "installing curl"
@@ -21,7 +23,6 @@ gem install bundler
 
 echo "installing gems"
 bundle install
-gem install sinatra
 echo "gems installation is done"
 
 echo "Setup is finished. Please check logs. If any error then fix."
